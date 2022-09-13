@@ -61,6 +61,10 @@ artifactory {
 			password = "${JFROG_ARTIFACTORY_PASSWORD}"
 			maven true
 		}
+		defaults {
+            		publishBuildInfo = false
+            		publications(publishing.publications.app)
+        	}
 	}
 }
 
@@ -99,9 +103,7 @@ publishing {
         }
     }
 }
-artifactoryPublish{
-	publications(publishing.publications.app)
-}
+
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
